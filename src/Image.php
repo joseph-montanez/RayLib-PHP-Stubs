@@ -100,6 +100,8 @@ class Image
     /**
      * Convert image data to desired format
      *
+     * {@internal RLAPI void ImageFormat(Image *image, int newFormat); }}
+     *
      * @param int $newFormat
      *
      * @return void
@@ -111,6 +113,8 @@ class Image
     /**
      * Apply alpha mask to image
      *
+     * {@internal RLAPI void ImageAlphaMask(Image *image, Image alphaMask); }}
+     *
      * @param Image $alphaMask
      *
      * @return void
@@ -121,6 +125,8 @@ class Image
 
     /**
      * Clear alpha channel to desired color
+     *
+     * {@internal RLAPI void ImageAlphaClear(Image *image, Color color, float threshold); }}
      *
      * @param array $color The color [red,blue,green,alpha] i.e [0,0,0,255]
      * @param float $threshold
@@ -134,6 +140,8 @@ class Image
     /**
      * Crop image depending on alpha value
      *
+     * {@internal RLAPI void ImageAlphaCrop(Image *image, float threshold); }}
+     *
      * @param float $threshold
      *
      * @return void
@@ -145,6 +153,8 @@ class Image
     /**
      * Premultiply alpha channel
      *
+     * {@internal RLAPI void ImageAlphaPremultiply(Image *image); }}
+     *
      * @return void
      */
     public function alphaPremultiply(): void
@@ -154,14 +164,18 @@ class Image
     /**
      * Crop an image to a defined rectangle
      *
-     * @param array $crop Rectangle ['x' => 0, 'y' => 0, 'width' => 0, 'height' => 0]
+     * {@internal RLAPI void ImageCrop(Image *image, Rectangle crop); }}
+     *
+     * @param \raylib\Rectangle $crop
      */
-    public function crop(array $crop): void
+    public function crop(Rectangle $crop): void
     {
     }
 
     /**
      * Resize and image (bilinear filtering)
+     *
+     * {@internal RLAPI void ImageResize(Image *image, int newWidth, int newHeight); }}
      *
      * @param int $newWidth
      * @param int $newHeight
@@ -175,26 +189,32 @@ class Image
     /**
      * Resize and image (Nearest-Neighbor scaling algorithm)
      *
+     * {@internal RLAPI void ImageResizeNN(Image *image, int newWidth,int newHeight); }}
+     *
      * @param int $newWidth
      * @param int $newHeight
      *
      * @return void
      */
-    public function resizeNN(int $newWidth, int $newHeight): void
+    public function resizeNearestNeighbor(int $newWidth, int $newHeight): void
     {
     }
 
     /**
      * Generate all mipmap levels for a provided image
      *
+     * {@internal RLAPI void ImageMipmaps(Image *image); }}
+     *
      * @return void
      */
-    public function mipmaps(): void
+    public function genMipmaps(): void
     {
     }
 
     /**
-     * Dither image data to 16bpp or lower (Floyd-Steinberg dithering)
+     * Dither image data to 16bpp or lower (Floyd-Steinberg dithering
+     *
+     * {@internal RLAPI void ImageDither(Image *image, int rBpp, int gBpp, int bBpp, int aBpp); }}
      *
      * @param int $rBpp
      * @param int $gBpp
@@ -210,9 +230,10 @@ class Image
     /**
      * Draw a source image within a destination image
      *
-     * @param Image $dst
-     * @param array $srcRec Source - Rectangle array ['x' => 0, 'y' => 0, 'width' => 0, 'height' => 0]
-     * @param array $dstRec Destination - Rectangle array ['x' => 0, 'y' => 0, 'width' => 0, 'height' => 0]
+     *
+     * @param \raylib\Image $dst
+     * @param \raylib\Rectangle $srcRec Source
+     * @param \raylib\Rectangle $dstRec Destination
      */
     public function draw(Image $dst, array $srcRec, array $dstRec): void
     {
@@ -301,6 +322,8 @@ class Image
     /**
      * Flip image vertically
      *
+     * {@interal RLAPI void ImageFlipVertical(Image *image); }}
+     *
      * @return void
      */
     public function flipVertical(): void
@@ -309,6 +332,8 @@ class Image
 
     /**
      * Flip image horizontally
+     *
+     * {@internal RLAPI void ImageFlipHorizontal(Image *image); }}
      *
      * @return void
      */
@@ -319,16 +344,20 @@ class Image
     /**
      * Modify image color: tint
      *
-     * @param array $color The color [red,blue,green,alpha] i.e [0,0,0,255]
+     * {@internal RLAPI void ImageColorTint(Image *image, Color color); }}
+     *
+     * @param \raylib\Color $color The color
      *
      * @return void
      */
-    public function colorTint(array $color): void
+    public function colorTint(Color $color): void
     {
     }
 
     /**
      * Modify image color: invert
+     *
+     * {@internal RLAPI void ImageColorInvert(Image *image); }}
      *
      * @return void
      */
@@ -339,6 +368,8 @@ class Image
     /**
      * Modify image color: grayscale
      *
+     * {@internal RLAPI void ImageColorGrayscale(Image *image); }}
+     *
      * @return void
      */
     public function colorGrayscale(): void
@@ -347,6 +378,8 @@ class Image
 
     /**
      * Modify image color: contrast (-100 to 100)
+     *
+     * {@internal RLAPI void ImageColorContrast(Image *image, float contrast); }}
      *
      * @param float $contrast Between -100 to 100
      *
@@ -359,6 +392,8 @@ class Image
     /**
      * Modify image color: brightness (-255 to 255)
      *
+     * {@internal RLAPI void ImageColorBrightness(Image *image, int brightness); }}
+     *
      * @param int $brightness Between -255 to 255
      *
      * @return void
@@ -368,7 +403,50 @@ class Image
     }
 
     /**
+     * Modify image color: replace color
+     *
+     * {@internal RLAPI void ImageColorReplace(Image *image, Color color, Color replace); }}
+     *
+     * @param \raylib\Color $color - The color to replace
+     * @param \raylib\Color $replace - The replacement color
+     *
+     * @return void
+     */
+    public function colorReplace(Color $color, Color $replace): void
+    {
+    }
+
+    /**
+     * Extract color palette from image to maximum size (memory should be freed), returns an array of colors
+     *
+     * {@internal ImageExtractPalette(Image image, int maxPaletteSize, int *extractCount); }}
+     *
+     * @param int $maxPaletteSize
+     * @param int $extractCount
+     *
+     * @return \raylib\Color[]
+     */
+    public function extractPalette(int $maxPaletteSize, int &$extractCount): array
+    {
+    }
+
+    /**
+     * Get image alpha border rectangle
+     *
+     * {@internal RLAPI Rectangle GetImageAlphaBorder(Image image, float threshold); }}
+     *
+     * @param float $threshold
+     *
+     * @return \raylib\Rectangle
+     */
+    public function getAlphaBorder(float $threshold): Rectangle
+    {
+    }
+
+    /**
      * Generate image: plain color
+     *
+     * {@internal RLAPI Image GenImageColor(int width, int height, Color color); }}
      *
      * @param int   $width
      * @param int   $height
