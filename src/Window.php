@@ -38,11 +38,32 @@ class Window {
     public static function isReady() : bool {}
 
     /**
+     * Check if window is currently fullscreen
+     *
+     * @return bool
+     */
+    public static function isFullscreen() : bool {}
+
+    /**
+     * Check if window is currently hidden
+     *
+     * @return bool
+     */
+    public static function isHidden() : bool {}
+
+    /**
      * Check if window has been minimized (or lost focus)
      *
      * @return bool
      */
     public static function isMinimized() : bool {}
+
+    /**
+     * Check if window is currently maximized (only PLATFORM_DESKTOP)
+     *
+     * @return bool
+     */
+    public static function isMaximized() : bool {}
 
     /**
      * Check if window has been resized
@@ -52,18 +73,19 @@ class Window {
     public static function isWindowResized() : bool {}
 
     /**
-     * Check if window is currently hidden
-     *
-     * @return bool
+     * Check if one specific window flag is enabled
      */
-    public static function isWindowHidden() : bool {}
+    public static function isState() {}
 
     /**
-     * Check if window is currently fullscreen
-     *
-     * @return bool
+     * Set window configuration state using flags
      */
-    public static function isWindowFullscreen() : bool {}
+    public static function setState() {}
+
+    /**
+     * Clear window configuration state flags
+     */
+    public static function clearState() {}
 
     /**
      * Toggle fullscreen mode (only PLATFORM_DESKTOP)
@@ -71,14 +93,19 @@ class Window {
     public static function toggleFullscreen() {}
 
     /**
-     * Toggle fullscreen mode (only PLATFORM_DESKTOP)
+     * Set window state: maximized, if resizable (only PLATFORM_DESKTOP)
      */
-    public static function unhideWindow() {}
+    public static function maximize() {}
 
     /**
-     * Show the window
+     * Set window state: minimized, if resizable (only PLATFORM_DESKTOP)
      */
-    public static function hideWindow() {}
+    public static function minimize() {}
+
+    /**
+     * Set window state: not minimized/maximized (only PLATFORM_DESKTOP)
+     */
+    public static function restore() {}
 
     /**
      * Hide the window
@@ -182,9 +209,23 @@ class Window {
     public static function getMonitorPhysicalHeight(int $monitor) : int {}
 
     /**
+     * Get specified monitor refresh rate
+     *
+     * @param int $monitor
+     *
+     * @return int
+     */
+    public static function GetMonitorRefreshRate(int $monitor) : int {}
+
+    /**
      * Get window position XY on monitor
      */
     public static function getWindowPosition() : \raylib\Vector2 {}
+
+    /**
+     * Get window scale DPI factor
+     */
+    public static function GetWindowScaleDPI() : \raylib\Vector2 {}
 
     /**
      * Get the human-readable, UTF-8 encoded name of the primary monitor
@@ -196,15 +237,6 @@ class Window {
     public static function getMonitorName(int $monitor) : string {}
 
     /**
-     * Get clipboard text content
-     *
-     * @param int $monitor
-     *
-     * @return string
-     */
-    public static function getClipboardText(int $monitor) : string {}
-
-    /**
      * Set clipboard text content
      *
      * @param string $text
@@ -212,4 +244,13 @@ class Window {
      * @return void
      */
     public static function setClipboardText(string $text) : void {}
+
+    /**
+     * Get clipboard text content
+     *
+     * @param int $monitor
+     *
+     * @return string
+     */
+    public static function getClipboardText(int $monitor) : string {}
 }
