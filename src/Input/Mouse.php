@@ -84,10 +84,10 @@ class Mouse
      */
     public static function setScale(float $scale) : void {}
 
-	/**
-	* Returns mouse wheel movement Y
-	*
-	* @return void
-	*/
-    public static function getWheelMove() : int {}
+    /**
+     * Returns mouse wheel movement Y
+     *
+     * @return float
+     */
+    public static function getWheelMove() : float {}
 }
