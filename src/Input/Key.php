@@ -124,14 +124,6 @@ class Key
      */
     public static function isUp(int $key) : bool {}
 
-    /**
-     * Get latest key pressed
-     *
-     * {@internal int GetKeyPressed(void) }}
-     *
-     * @return int
-     */
-    public static function getPressed() : int {}
 
     /**
      * Set a custom key to exit program (default is ESC)
@@ -142,4 +134,21 @@ class Key
      */
     public static function setExit(int $key) : void {}
 
+    /**
+     * Get key pressed (keycode), call it multiple times for keys queued
+     *
+     * {@internal int GetKeyPressed(void) }}
+     *
+     * @return int
+     */
+    public static function getPressed() : int {}
+
+    /**
+     * Get char pressed (unicode), call it multiple times for chars queued
+     *
+     * {@internal int GetKeyPressed(void) }}
+     *
+     * @return int
+     */
+    public static function getKeyPressed() : int {}
 }

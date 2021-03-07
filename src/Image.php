@@ -417,16 +417,16 @@ class Image
     }
 
     /**
-     * Extract color palette from image to maximum size (memory should be freed), returns an array of colors
+     * Load colors palette from image as a Color array (RGBA - 32bit)
      *
-     * {@internal ImageExtractPalette(Image image, int maxPaletteSize, int *extractCount); }}
+     * {@internal RLAPI Color *LoadImagePalette(Image image, int maxPaletteSize, int *colorsCount); }}
      *
      * @param int $maxPaletteSize
      * @param int $extractCount
      *
      * @return \raylib\Color[]
      */
-    public function extractPalette(int $maxPaletteSize, int &$extractCount): array
+    public function loadPalette(int $maxPaletteSize, int &$extractCount): array
     {
     }
 
