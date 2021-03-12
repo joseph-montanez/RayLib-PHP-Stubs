@@ -215,17 +215,17 @@ class Window {
      *
      * @return int
      */
-    public static function GetMonitorRefreshRate(int $monitor) : int {}
+    public static function getMonitorRefreshRate(int $monitor) : int {}
 
     /**
      * Get window position XY on monitor
      */
-    public static function getWindowPosition() : \raylib\Vector2 {}
+    public static function getPosition() : \raylib\Vector2 {}
 
     /**
      * Get window scale DPI factor
      */
-    public static function GetWindowScaleDPI() : \raylib\Vector2 {}
+    public static function getScaleDPI() : \raylib\Vector2 {}
 
     /**
      * Get the human-readable, UTF-8 encoded name of the primary monitor
