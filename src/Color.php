@@ -63,12 +63,11 @@ class Color
     /**
      * Color fade-in or fade-out, alpha goes from 0.0f to 1.0f
      *
-     * @param \raylib\Color $color
      * @param float         $alpha
      *
      * @return \raylib\Color
      */
-    public static function fade(Color $color, float $alpha) : Color {}
+    public function fade(float $alpha) : Color {}
 
 
     /**
