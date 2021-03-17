@@ -53,4 +53,29 @@ class Camera2D
      * @param float $zoom
      */
     public function setZoom(float $zoom) : void {}
+
+    /**
+     * Returns camera 2d transform matrix
+     *
+     * @return \raylib\Matrix
+     */
+    public function getMatrix() : Matrix {}
+
+    /**
+     * Returns the screen space position for a 2d camera world space position
+     *
+     * @param \raylib\Vector2 $position
+     *
+     * @return \raylib\Vector2
+     */
+    public function getWorldToScreen(Vector2 $position) : Vector2 {}
+
+    /**
+     * Returns the world space position for a 2d camera screen space position
+     *
+     * @param \raylib\Vector2 $position
+     *
+     * @return \raylib\Vector2
+     */
+    public function getScreenToWorld(Vector2 $position) : Vector2 {}
 }
