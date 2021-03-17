@@ -11,7 +11,7 @@ This repo provide RayLib-PHP stubs which enables auto-completion in modern IDEs.
 
 2. Install via composer:
     ```bash
-    composer require --dev joseph-montanez/raylib-php-stubs
+    composer require --dev joseph-montanez/raylib-php-stub
     ```
 
 3. Setup your IDE.
