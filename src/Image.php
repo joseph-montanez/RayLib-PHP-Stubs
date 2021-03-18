@@ -44,6 +44,19 @@ class Image
     }
 
     /**
+     * Load an Image from an animated file. Currently only GIF is supported if RayLib is compiled with
+     * SUPPORT_FILEFORMAT_GIF enabled. APNG is not supported at this time.
+     *
+     * @param string $fileName The file name to load
+     * @param int    $frames   The return value of total animated frame count
+     *
+     * @return \raylib\Image
+     */
+    public static function fromAnim(string $fileName, int &$frames): \raylib\Image
+    {
+    }
+
+    /**
      * Load texture from image data
      *
      * @return Texture
@@ -231,7 +244,7 @@ class Image
      * Draw a source image within a destination image
      *
      *
-     * @param \raylib\Image $dst
+     * @param \raylib\Image     $dst
      * @param \raylib\Rectangle $srcRec Source
      * @param \raylib\Rectangle $dstRec Destination
      */
@@ -255,7 +268,8 @@ class Image
     /**
      * Draw text (default font) within an image (destination)
      *
-     * {@internal RLAPI void ImageDrawText(Image *dst, Vector2 position, const char *text, int fontSize, Color color); }}
+     * {@internal RLAPI void ImageDrawText(Image *dst, Vector2 position, const char *text, int fontSize, Color color);
+     * }}
      *
      * @param \raylib\Vector2 $position The position to place the text - Vector2 array ['x' => 0, 'y' => 0]
      * @param string          $text     The text to draw on the image
@@ -407,7 +421,7 @@ class Image
      *
      * {@internal RLAPI void ImageColorReplace(Image *image, Color color, Color replace); }}
      *
-     * @param \raylib\Color $color - The color to replace
+     * @param \raylib\Color $color   - The color to replace
      * @param \raylib\Color $replace - The replacement color
      *
      * @return void
