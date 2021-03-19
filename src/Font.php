@@ -96,6 +96,17 @@ class Font
     }
 
     /**
+     * Get Built-in Raylib Font
+     *
+     * {@internal RLAPI Font GetFontDefault(void);}}
+     *
+     * @return \raylib\Font
+     */
+    public static function fromDefault() : Font
+    {
+    }
+
+    /**
      * Measure string size for Font
      *
      * {@internal RLAPI Vector2 MeasureTextEx(Font font, const char *text, float fontSize, float spacing);}}
