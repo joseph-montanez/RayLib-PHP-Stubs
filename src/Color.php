@@ -43,6 +43,17 @@ class Color
     public static function normalize(Color $color) : Vector4 {}
 
     /**
+     * Returns a Color from HSV values
+     *
+     * @param float $hue
+     * @param float $saturation
+     * @param float $value
+     *
+     * @return \raylib\Color
+     */
+    public static function fromHSV(float $hue, float $saturation, float $value) : Color {}
+
+    /**
      * Returns HSV values for a Color
      *
      * @param \raylib\Color $color
@@ -58,7 +69,16 @@ class Color
      *
      * @return \raylib\Color
      */
-    public static function getColor(int $hexValue) : Color {}
+    public static function fromInt(int $hexValue) : Color {}
+
+    /**
+     * Returns color from normalized values [0..1]
+     *
+     * @param \raylib\Vector4 $normalized
+     *
+     * @return \raylib\Color
+     */
+    public static function fromNormalized(Vector4 $normalized) : Color {}
 
     /**
      * Color fade-in or fade-out, alpha goes from 0.0f to 1.0f
