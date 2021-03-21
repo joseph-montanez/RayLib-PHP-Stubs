@@ -490,14 +490,15 @@ class Draw
     /**
      * Draw rectangle with rounded edges outline
      *
-     * @param \raylib\Rectangle $rec   Rectangle
+     * @param \raylib\Rectangle $rec       Rectangle
      * @param float             $roundness Roundness is in pixels
-     * @param int               $segments Number of polylines to draw
-     * @param \raylib\Color     $color The color [red,blue,green,alpha] i.e [0,0,0,255]
+     * @param int               $segments  Number of polylines to draw
+     * @param int               $lineThick Line Thickness
+     * @param \raylib\Color     $color     The color [red,blue,green,alpha] i.e [0,0,0,255]
      *
      * @return void
      */
-    public static function rectangleRoundedLines(Rectangle $rec, float $roundness, int $segments, Color $color): void
+    public static function rectangleRoundedLines(Rectangle $rec, float $roundness, int $segments, int $lineThick, Color $color): void
     {
     }
 
