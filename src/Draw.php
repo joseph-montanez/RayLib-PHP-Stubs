@@ -474,6 +474,34 @@ class Draw
     }
 
     /**
+     * Draw rectangle with rounded edges
+     *
+     * @param \raylib\Rectangle $rec   Rectangle
+     * @param float             $roundness Roundness is in pixels
+     * @param int               $segments Number of polylines to draw
+     * @param \raylib\Color     $color The color [red,blue,green,alpha] i.e [0,0,0,255]
+     *
+     * @return void
+     */
+    public static function rectangleRounded(Rectangle $rec, float $roundness, int $segments, Color $color): void
+    {
+    }
+
+    /**
+     * Draw rectangle with rounded edges outline
+     *
+     * @param \raylib\Rectangle $rec   Rectangle
+     * @param float             $roundness Roundness is in pixels
+     * @param int               $segments Number of polylines to draw
+     * @param \raylib\Color     $color The color [red,blue,green,alpha] i.e [0,0,0,255]
+     *
+     * @return void
+     */
+    public static function rectangleRoundedLines(Rectangle $rec, float $roundness, int $segments, Color $color): void
+    {
+    }
+
+    /**
      * Draw a color-filled triangle
      *
      * @param \raylib\Vector2 $v1    The position - Vector2 array ['x' => 0, 'y' => 0]
